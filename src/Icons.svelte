@@ -1,3 +1,5 @@
+<!-- This is a comment -->
+
 <script>
     export let name;
     export let width = "1.5rem";
