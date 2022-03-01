@@ -16,29 +16,53 @@
 
     console.log(todoList);
   }
+  import Icons from "./Icons.svelte";
+  function removeFromList(index) {
+    todoList.splice(index, 1);
+    todoList = todoList;
+  }
 </script>
 
 <main class="container">
-	<main class="container">
-		<div>
+
+
+    <!-- Header -->
+    <h2 class="todos__listHeader">My to-do list</h2>
+
+    <!-- Form -->
+    <div>
 		  <form on:submit|preventDefault={addTodo}>
-			<input
+		    <input
 			  bind:value={newItem}
 			  type="task"
 			  class="todos__input"
-			  placeholder="Enter Todo"
-			/>
-			<button class="todos__button">+</button>
-		  </form>
-		  <h2 class="todos__listHeader">My to-do list</h2>
+			  placeholder="Enter to-do"
+			  />
+		  	<button class="todos__button">+</button>
+      </form>
 		</div>
+    
+    <!-- To-dos -->
 		{#each todoList as item, index}
-		<div class="todo">
-		  <span class="todo__text">{item.task}</span>
-		</div>
-	  {/each}
-	  </main>
+      <div class="todo">
+        <span class={`todo__text ${item.completed ? "todo__checked--strike" : ""}`}>{item.task}</span>
+        
+        <div class="icons">
+          <button
+            class="icon__button"
+            on:click={() => (item.completed = !item.completed)}
+          >
+            <Icons name="check-mark" class="icon" />
+          </button>
 
+          <button class="icon__button" on:click={() => removeFromList(index)}>
+            <Icons name="delete" class="icon" />
+          </button>
+        </div>
+    
+      </div>
+	  {/each}
+    
 </main>
 
 <style>
@@ -75,7 +99,7 @@
     align-items: center;
     min-height: 90vh;
     background: #222e50
-      url(https://images.unsplash.com/photo-1631398741662-3e0a047c6c5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)
+      url(https://images.unsplash.com/photo-1589859762194-eaae75c61f64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)
       no-repeat;
     background-size: cover;
     padding-top: 10vh;
@@ -100,5 +124,19 @@
     cursor: pointer;
 
   }
-  
+  .icon__button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .icon {
+    background: rgba(0, 0, 0, 0.54);
+  }
+
+  .todo__checked--strike {
+    text-decoration: line-through;
+  }
 </style>
