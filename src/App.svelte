@@ -25,7 +25,7 @@
 
 <main class="container">
   <!-- Header -->
-  <h2 class="todos__listHeader">My to-do list</h2>
+  <h1 class="todos__listHeader">My to-do list</h1>
 
   <!-- Form -->
   <div>
