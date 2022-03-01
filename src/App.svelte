@@ -1,5 +1,5 @@
 <script>
-	  let newItem = "";
+  let newItem = "";
   let todoList = [];
 
   function addTodo() {
@@ -24,49 +24,48 @@
 </script>
 
 <main class="container">
+  <!-- Header -->
+  <h2 class="todos__listHeader">My to-do list</h2>
 
+  <!-- Form -->
+  <div>
+    <form on:submit|preventDefault={addTodo}>
+      <input
+        bind:value={newItem}
+        type="task"
+        class="todos__input"
+        placeholder="Enter to-do"
+      />
+      <button class="todos__button">+</button>
+    </form>
+  </div>
 
-    <!-- Header -->
-    <h2 class="todos__listHeader">My to-do list</h2>
+  <!-- To-dos -->
+  {#each todoList as item, index}
+    <div class="todo">
+      <span
+        class={`todo__text ${item.completed ? "todo__checked--strike" : ""}`}
+        >{item.task}</span
+      >
 
-    <!-- Form -->
-    <div>
-		  <form on:submit|preventDefault={addTodo}>
-		    <input
-			  bind:value={newItem}
-			  type="task"
-			  class="todos__input"
-			  placeholder="Enter to-do"
-			  />
-		  	<button class="todos__button">+</button>
-      </form>
-		</div>
-    
-    <!-- To-dos -->
-		{#each todoList as item, index}
-      <div class="todo">
-        <span class={`todo__text ${item.completed ? "todo__checked--strike" : ""}`}>{item.task}</span>
-        
-        <div class="icons">
-          <button
-            class="icon__button"
-            on:click={() => (item.completed = !item.completed)}
-          >
-            <Icons name="check-mark" class="icon" />
-          </button>
+      <div class="icons">
+        <button
+          class="icon__button"
+          on:click={() => (item.completed = !item.completed)}
+        >
+          <Icons name="check-mark" class="icon" />
+        </button>
 
-          <button class="icon__button" on:click={() => removeFromList(index)}>
-            <Icons name="delete" class="icon" />
-          </button>
-        </div>
-    
+        <button class="icon__button" on:click={() => removeFromList(index)}>
+          <Icons name="delete" class="icon" />
+        </button>
       </div>
-	  {/each}
-    
+    </div>
+  {/each}
 </main>
 
 <style>
- .todos__listHeader {
+  .todos__listHeader {
     text-align: center;
     padding: 20px;
     border-radius: 20px;
@@ -77,7 +76,7 @@
     margin: 15px 0px 25px 0px;
     font-size: 1.2rem;
   }
-	.todo {
+  .todo {
     display: flex;
     padding: 20px;
     border-radius: 20px;
@@ -92,13 +91,12 @@
     align-items: center;
   }
 
-
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 90vh;
-    background: #FFEDA4;
+    background: #ffeda4;
     background-size: cover;
     padding-top: 10vh;
   }
@@ -120,7 +118,6 @@
     box-shadow: none;
     font-size: 1.2rem;
     cursor: pointer;
-
   }
   .icon__button {
     background-color: transparent;
