@@ -1,22 +1,9 @@
-*Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
+# Svelte.js Tutorial - The Framework to Write Faster JavaScript
+![](Svelte.js tutorial cover)
+This repo is part of a tutorial to build a simple to-do app with Svelte.js.
 
-*Looking for a shareable component template instead? You can [use SvelteKit for that as well](https://kit.svelte.dev/docs#packaging) or the older [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
-
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+>Read the tutorial [here](https://snipcart.com/blog/svelte-js-framework-tutorial)
+>View the live demo [here](https://svelte-to-do-app-pi.vercel.app/)
 
 ## Get started
 
