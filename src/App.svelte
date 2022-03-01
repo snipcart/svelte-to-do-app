@@ -98,9 +98,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 90vh;
-    background: #222e50
-      url(https://images.unsplash.com/photo-1589859762194-eaae75c61f64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)
-      no-repeat;
+    background: #FFEDA4;
     background-size: cover;
     padding-top: 10vh;
   }
