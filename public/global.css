@@ -50,24 +50,9 @@ textarea {
   border-radius: 2px;
 }
 
-input:disabled {
-  color: #ccc;
-}
-
 button {
-  color: #333;
-  background-color: #f4f4f4;
+  background-color: transparent;
   outline: none;
-}
-
-button:disabled {
-  color: #999;
-}
-
-button:not(:disabled):active {
-  background-color: #ddd;
-}
-
-button:focus {
-  border-color: #666;
+  border: none;
+  cursor: pointer;
 }
