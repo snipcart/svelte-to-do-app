@@ -22,19 +22,14 @@
   }
 </script>
 
-<main class="container">
+<main>
   <!-- Header -->
-  <h1 class="todos__listHeader">My to-do list</h1>
+  <h1>My to-do list</h1>
 
   <!-- Form -->
   <form on:submit|preventDefault={addTodo}>
-    <input
-      bind:value={newItem}
-      type="task"
-      class="todos__input"
-      placeholder="Enter to-do"
-    />
-    <button class="todos__button" on:click={addTodo}>+</button>
+    <input bind:value={newItem} placeholder="Enter to-do" />
+    <button class="add-todo" on:click={addTodo}><span>+</span></button>
   </form>
 
   <!-- To-dos -->
@@ -58,16 +53,55 @@
 </main>
 
 <style>
-  .todos__listHeader {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    padding: 5vmin;
+    box-sizing: border-box;
+    background: #ffeda4;
+  }
+  h1 {
     text-align: center;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgb(0 0 0 / 20%);
-    background-color: hsla(0, 0%, 100%, 0.2);
-    -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px);
-    margin: 15px 0px 25px 0px;
+    font-size: 1.5rem;
+    margin: 2em 0;
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    flex-grow: 1;
+    width: 0;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    box-shadow: none;
     font-size: 1.2rem;
+    margin: 0;
+    outline: none;
+  }
+
+  button.add-todo {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 100%;
+    flex-shrink: 0;
+  }
+
+  button.add-todo span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
   }
   .todo {
     display: flex;
@@ -82,28 +116,6 @@
     font-size: 1.2rem;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 90vh;
-    background: #ffeda4;
-    background-size: cover;
-    padding-top: 10vh;
-  }
-
-  .todos__input {
-    background-color: inherit;
-    border: none;
-    box-shadow: none;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-bottom: 1px solid black;
-    margin-top: 15px;
-    outline: none;
-    width: 500px;
   }
   .todos__button {
     background-color: inherit;
