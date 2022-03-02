@@ -1,5 +1,5 @@
 <script>
-  import Icons from "./Icons.svelte";
+  import Icon from "./Icon.svelte";
 
   let newItem = "";
   let todoList = [];
@@ -47,11 +47,10 @@
           class="icon__button"
           on:click={() => (item.completed = !item.completed)}
         >
-          <Icons name="check-mark" class="icon" />
+          <Icon name="check-mark" />
         </button>
-
         <button class="icon__button" on:click={() => removeFromList(index)}>
-          <Icons name="delete" class="icon" />
+          <Icon name="delete" />
         </button>
       </div>
     </div>
@@ -123,6 +122,13 @@
   }
   .icon {
     background: rgba(0, 0, 0, 0.54);
+  }
+
+  .icon__button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
   }
 
   .todo.completed {
