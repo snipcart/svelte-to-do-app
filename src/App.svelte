@@ -2,16 +2,7 @@
   import Icon from "./Icon.svelte";
 
   let newItem = "";
-  let todoList = [
-    {
-      task: "Do my laundry",
-      completed: false,
-    },
-    {
-      task: "Sniff a flower",
-      completed: true,
-    },
-  ];
+  let todoList = [];
 
   function add() {
     if (newItem !== "") {
@@ -25,8 +16,8 @@
       newItem = "";
     }
   }
-  function complete(item) {
-    item.completed = !item.completed;
+  function complete(index) {
+    todoList[index].completed = !todoList[index].completed;
   }
   function remove(index) {
     todoList.splice(index, 1);
@@ -50,7 +41,7 @@
       <div class="todo" class:completed={item.completed}>
         <span class="todo__text">{item.task}</span>
         <div class="todo__buttons">
-          <button class="complete" on:click={() => complete(item)}>
+          <button class="complete" on:click={() => complete(index)}>
             <Icon name="check-mark" />
           </button>
           <button class="delete" on:click={() => remove(index)}>
