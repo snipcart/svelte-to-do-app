@@ -13,7 +13,7 @@
     },
   ];
 
-  function addTodo() {
+  function add() {
     if (newItem !== "") {
       todoList = [
         ...todoList,
@@ -25,7 +25,10 @@
       newItem = "";
     }
   }
-  function removeFromList(index) {
+  function complete(item) {
+    item.completed = !item.completed;
+  }
+  function remove(index) {
     todoList.splice(index, 1);
     todoList = todoList;
   }
@@ -36,9 +39,9 @@
   <h1>My to-do list</h1>
 
   <!-- Form -->
-  <form on:submit|preventDefault={addTodo}>
+  <form on:submit|preventDefault={add}>
     <input bind:value={newItem} placeholder="Enter to-do" />
-    <button class="add-todo" on:click={addTodo}><span>+</span></button>
+    <button class="add-todo" on:click={add}><span>+</span></button>
   </form>
 
   <!-- To-dos -->
@@ -47,13 +50,10 @@
       <div class="todo" class:completed={item.completed}>
         <span class="todo__text">{item.task}</span>
         <div class="todo__buttons">
-          <button
-            class="complete"
-            on:click={() => (item.completed = !item.completed)}
-          >
+          <button class="complete" on:click={() => complete(item)}>
             <Icon name="check-mark" />
           </button>
-          <button class="delete" on:click={() => removeFromList(index)}>
+          <button class="delete" on:click={() => remove(index)}>
             <Icon name="delete" />
           </button>
         </div>
