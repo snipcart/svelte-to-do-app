@@ -1,4 +1,6 @@
 <script>
+  import Icons from "./Icons.svelte";
+
   let newItem = "";
   let todoList = [];
 
@@ -13,10 +15,7 @@
       ];
       newItem = "";
     }
-
-    console.log(todoList);
   }
-  import Icons from "./Icons.svelte";
   function removeFromList(index) {
     todoList.splice(index, 1);
     todoList = todoList;
@@ -28,25 +27,20 @@
   <h1 class="todos__listHeader">My to-do list</h1>
 
   <!-- Form -->
-  <div>
-    <form on:submit|preventDefault={addTodo}>
-      <input
-        bind:value={newItem}
-        type="task"
-        class="todos__input"
-        placeholder="Enter to-do"
-      />
-      <button class="todos__button">+</button>
-    </form>
-  </div>
+  <form on:submit|preventDefault={addTodo}>
+    <input
+      bind:value={newItem}
+      type="task"
+      class="todos__input"
+      placeholder="Enter to-do"
+    />
+    <button class="todos__button" on:click={addTodo}>+</button>
+  </form>
 
   <!-- To-dos -->
   {#each todoList as item, index}
-    <div class="todo">
-      <span
-        class={`todo__text ${item.completed ? "todo__checked--strike" : ""}`}
-        >{item.task}</span
-      >
+    <div class="todo" class:completed={item.completed}>
+      <span class="todo__text">{item.task}</span>
 
       <div class="icons">
         <button
@@ -131,7 +125,7 @@
     background: rgba(0, 0, 0, 0.54);
   }
 
-  .todo__checked--strike {
+  .todo.completed {
     text-decoration: line-through;
   }
 </style>
