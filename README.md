@@ -3,6 +3,7 @@
 This repo is part of a tutorial to build a simple to-do app with Svelte.js.
 
 >Read the tutorial [here](https://snipcart.com/blog/svelte-js-framework-tutorial)
+
 >View the live demo [here](https://svelte-to-do-app-pi.vercel.app/)
 
 ## Get started
