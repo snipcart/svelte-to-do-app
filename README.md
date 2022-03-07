@@ -1,5 +1,5 @@
 # Svelte.js Tutorial - The Framework to Write Faster JavaScript
-![https://www.datocms-assets.com/48401/1646676749-svelte-js-og.png](Svelte.js tutorial cover)
+![Svelte.js tutorial cover](https://www.datocms-assets.com/48401/1646676749-svelte-js-og.png)
 This repo is part of a tutorial to build a simple to-do app with Svelte.js.
 
 >Read the tutorial [here](https://snipcart.com/blog/svelte-js-framework-tutorial)
